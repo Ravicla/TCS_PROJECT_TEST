@@ -6,7 +6,6 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ProductService {
-
   //private apiUrl = 'https://tribu-ti-staffing-desarrolloafangwbmcrhucqfh.z01.azurefd.net/ipf-msaproductosfinancieros/bp/products';
   private apiUrl = 'https://tribu-ti-staffing-desarrolloafangwbmcrhucqfh.z01.azurefd.net/ipf-msaproductosfinancieros/bp/products';
   private headers = new HttpHeaders({
@@ -19,5 +18,10 @@ export class ProductService {
   // Método para obtener los productos
   getProducts(): Observable<any[]> {
     return this.http.get<any[]>(this.apiUrl, { headers: this.headers });
+  }
+
+  // Método para crear un producto
+  createProduct(product: any): Observable<any> {
+    return this.http.post(this.apiUrl, JSON.stringify(product), { headers: this.headers });
   }
 }

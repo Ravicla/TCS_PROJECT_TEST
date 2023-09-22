@@ -1,1 +1,176 @@
 /* You can add global styles to this file, and also import other style files */
+.container {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+.search-container {
+  margin-bottom: 20px;
+}
+
+.search-input {
+  width: 70%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.search-button {
+  background-color: #ffdd00;
+  color: #000;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table, th, td {
+  border: 1px solid #ccc;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+.add-button {
+  background-color: #ffdd00;
+  color: #000;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+.search-add-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.search-container {
+  flex-grow: 1;
+  margin-right: 10px;
+}
+
+.search-input {
+  width: 40%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.add-button {
+  background-color: #ffdd00;
+  color: #000;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+
+/* Formulario de Registro */
+/* ... Estilos anteriores ... */
+body{
+  background-color: #e9ecf3;
+}
+.form-container {
+  background-color: #fff;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+.form-container label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.form-input[type="file"] {
+  padding: 0;
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: center; /* Centro los botones horizontalmente */
+  align-items: center;
+  margin-top: 20px; /* Añado un espacio arriba de los botones */
+}
+
+.reset-button {
+  background-color: #e9ecf3;
+  color: #000;
+  border: none;
+  padding: 20px 30px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 10px; /* Margen a la derecha del botón "Reiniciar" */
+}
+
+.submit-button {
+  background-color: #ffdd00;
+  color: #000;
+  border: none;
+  padding: 20px 30px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 10px; /* Margen a la izquierda del botón "Enviar" */
+}
+
+.form-columns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.form-column {
+  width: calc(50% - 20px); /* Divide el formulario en dos columnas con más espacio entre ellas */
+  margin-bottom: 20px;
+  padding-right: 10px; /* Añade espacio entre las filas de campos */
+}
+
+
+
+.form-column:first-child {
+  margin-right: 20px; /* Espacio entre las columnas */
+}
+.form-buttons {
+  display: flex;
+  justify-content: center; /* Centro los botones horizontalmente */
+  align-items: center;
+  margin-top: 20px; /* Añado un espacio arriba de los botones */
+}
+
+.form-container h1 {
+  text-align: center;
+}
+/* ... Estilos adicionales ... */
