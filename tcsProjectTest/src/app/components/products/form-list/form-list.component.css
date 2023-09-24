@@ -1,0 +1,33 @@
+/* Estilos para el contenedor del menú desplegable */
+.custom-dropdown {
+  position: relative;
+}
+
+/* Estilos para el ícono que activa el menú */
+.custom-dropdown i {
+  cursor: pointer;
+}
+
+/* Estilos para el menú desplegable */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+/* Estilos para los botones dentro del menú */
+.dropdown-content button {
+  width: 100%;
+  padding: 8px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+/* Mostrar el menú desplegable al hacer clic en el ícono */
+.show-dropdown .dropdown-content {
+  display: block;
+}

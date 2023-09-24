@@ -1,32 +1,60 @@
 <div class="container">
   <div class="search-add-container">
     <div class="search-container">
-      <input type="text" class="search-input" placeholder="Buscar...">
+      <input type="text" class="search-input" placeholder="Search...">
     </div>
-    <button class="add-button">Agregar</button>
+    <button class="add-button"[routerLink]="['/register']">Agregar</button>
   </div>
   <table>
     <thead>
       <tr>
-        <th>ID</th>
+        <th>Logo</th>
+        <th>Nombre del producto</th>
+        <th>Descripción   
+          <i class="fa-solid fa-circle-exclamation fa-rotate-180 fa-lg" style="color: #98a0a9;"></i>
+        </th>
+        <th>Fecha de liberación
+          <i class="fa-solid fa-circle-exclamation fa-rotate-180 fa-lg" style="color: #98a0a9;"></i>
+        </th>
+        <th>Fecha de reestructuración
+          <i class="fa-solid fa-circle-exclamation fa-rotate-180 fa-lg" style="color: #98a0a9;"></i>
+        </th>
+        <th class="custom-dropdown" id="dropdown">
+          <i class="fas fa-ellipsis-v" (click)="toggleDropdown()"></i>
+          <div class="dropdown-content" id="dropdown-content" [ngClass]="{ 'show-dropdown': dropdownVisible }">
+            <button (click)="eliminar()">Eliminar</button>
+            <button (click)="actualizar()">Actualizar</button>
+          </div>
+        </th>
+        
+
+        <!-- <th>ID</th>
         <th>Nombre</th>
         <th>Descripción</th>
         <th>Logo</th>
         <th>Fecha de Lanzamiento</th>
-        <th>Fecha de Revisión</th>
-      </tr>
+        <th>Fecha de Revisión</th> -->
+      </tr> 
     </thead>
     <tbody>
       <!-- Aquí puedes agregar filas de datos usando *ngFor en Angular -->
       <tr *ngFor="let item of data">
-        <td>{{ item.id }}</td>
+        <td><img [src]="item.logo" alt="Logo"></td>
+        <td>{{ item.name }}</td>
+        <td>{{ item.description }}</td>
+        <td>{{ item.date_release }}</td>
+        <td>{{ item.date_revision }}</td>  
+        <td><i class="fas fa-ellipsis-v"></i></td>      
+        
+        <!-- <td>{{ item.id }}</td>
         <td>{{ item.name }}</td>
         <td>{{ item.description }}</td>
         <td><img [src]="item.logo" alt="Logo"></td>
         <td>{{ item.date_release }}</td>
-        <td>{{ item.date_revision }}</td>
+        <td>{{ item.date_revision }}</td> -->
       </tr>
     </tbody>
   </table>
   
 </div>
+
