@@ -7,7 +7,7 @@ const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'index' },
   { path: 'form-list', component: FormListComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'updateRegister/:registerId', component: RegisterComponent },
+  { path: 'updateRegister/:productId', component: RegisterComponent },
 ];
 
 @NgModule({

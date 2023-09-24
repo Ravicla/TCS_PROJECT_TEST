@@ -13,12 +13,12 @@ export class RegisterComponent implements OnInit{
   productForm: FormGroup;
   type: string = "Enviar";
 
-  model: any = {};
-  idExists: boolean = false;
+  //model: any = {};
+  //idExists: boolean = false;
 
   constructor(
     private productService: ProductService, 
-    private formBuilder: FormBuilder,
+    //private formBuilder: FormBuilder,
     private activatedRoute: ActivatedRoute,
     private router: Router
     ) {
@@ -51,80 +51,48 @@ export class RegisterComponent implements OnInit{
       ])
     },[]);
   }
-
- 
-  
-
-  
-
-  // Función para enviar el formulario y crear un nuevo producto
-  /*onSubmit() {
-    const newProduct = this.productForm.value;
-    this.productService.createProduct(newProduct).subscribe(response => {
-      // Maneja la respuesta aquí, por ejemplo, muestra un mensaje de éxito
-      console.log('Producto creado con éxito', response);
-      // Limpia el formulario después de crear el producto
-      this.productForm.reset();
-    }, error => {
-      // Maneja el error aquí, por ejemplo, muestra un mensaje de error
-      console.error('Error al crear el producto', error);
-    });
-  }*/
   
   async getDataForm(): Promise<void> {
-    if (this.productForm.valid) {
       let newProduct = this.productForm.value;
-  
-      if (newProduct.productId) {
-        // Actualizando producto existente
-        try {
+      console.log(newProduct);
+      console.log(this.type);
+      if (this.type !="Enviar") {
           let response = await this.productService.updateProduct(newProduct);
-  
-          if (response.updatedAt) {
+          console.log(response);
+          if (response[0].id) {
             alert('Producto actualizado');
             this.router.navigate(['/form-list']);
           }
-        } catch (error) {
-          console.error(error);
-          alert('Error al actualizar el producto');
-        }
       } else {
-        // Creando nuevo usuario
-        try {
           let response = await this.productService.createProduct(newProduct);
-  
-          if (response.id) {
+          if (response[0].id) {
+            alert('Producto almacenado correctamente');
             this.router.navigate(['/form-list']);
           } else {
             alert('Hubo un error al crear el producto. Inténtelo de nuevo');
           }
-        } catch (error) {
-          console.error(error);
-          alert('Error al guardar el producto');
-        }
       }
-    } else {
-      alert('El formulario no está bien rellenado');
-    }
 
   }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(async (params: any) => {
-      let id: number = parseInt(params.registerId);
+      let id: string = params.productId;
       if(id) {
         this.type = 'Actualizar'
-        const response = await this.productService.getProductById(id)
-            
-        const product: Product = response
-        console.log(product);
+        const response = await this.productService.getAll();
+        const product = response.find((p: Product) => p.id === id);
+        
+        const formattedDateRelease = new Date(product.date_release).toISOString().substring(0, 10);
+        const formattedDateRevision = new Date(product.date_revision).toISOString().substring(0, 10);
+    
         this.productForm = new FormGroup({
           id: new FormControl (product?.id, []),
           name: new FormControl (product?.name, []),
-          descripion: new FormControl (product?.description, []),
+          description: new FormControl (product?.description, []),
           logo: new FormControl (product?.logo, []),
-          date_release: new FormControl (product?.date_release, []),
-          date_revision: new FormControl (product?.date_revision, [])
+          date_release: new FormControl(formattedDateRelease, []),
+          date_revision: new FormControl(formattedDateRevision, [])
         }, [])    
       }    
     })
