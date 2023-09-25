@@ -49,7 +49,7 @@ export class FormListComponent {
     $('#dataTable').DataTable({
       searching: true,
       data: this.data,
-      paging: true, 
+      paging: false, 
       lengthMenu: [5, 10, 20], 
       pageLength: 10, 
       info: true,
