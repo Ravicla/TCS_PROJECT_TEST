@@ -10,9 +10,7 @@ import { Product } from 'src/app/interfaces/products/product.interface';
   providedIn: 'root'
 })
 export class ProductService {
-  //private apiUrl = 'https://tribu-ti-staffing-desarrolloafangwbmcrhucqfh.z01.azurefd.net/ipf-msaproductosfinancieros/bp/products';
-  private apiUrl = 'https://a6d63c3c-ee6e-4189-9eaf-5f4b20e7343b.mock.pstmn.io/';
-  private apiUrlvalidate = 'https://869c07d0-d6ef-4a7b-9802-1101602b6e42.mock.pstmn.io/';
+  private apiUrl = 'https://tribu-ti-staffing-desarrolloafangwbmcrhucqfh.z01.azurefd.net/ipf-msaproductosfinancieros/bp/products';
 
 
 
@@ -29,7 +27,7 @@ export class ProductService {
   }
   
   validateId(pId: string): Promise<any> {
-    return lastValueFrom(this.http.get<any>(`${this.apiUrlvalidate}bp/products/verification?id=${pId}`))
+    return lastValueFrom(this.http.get<any>(`${this.apiUrl}bp/products/verification?id=${pId}`))
   }
 
   // Método para crear un producto
